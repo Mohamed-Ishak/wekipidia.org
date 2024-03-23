@@ -15,7 +15,7 @@ public class PereferencesPage extends BasePage{
 	}
 	 
     By textArea = By.cssSelector("textarea[id='ooui-php-57']");
-	By saveBTN  = By.cssSelector("button[value=\"Save\"]");
+	By saveBTN  = By.cssSelector("button[value='Save']");
     public void waitForURLToExternalProfileTextAreaToBePresent() {
 		waitForElementToBeVisible(textArea);
 	}

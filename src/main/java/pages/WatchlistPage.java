@@ -14,7 +14,6 @@ public class WatchlistPage extends BasePage{
 		// TODO Auto-generated constructor stub
 	}
 
-
 	By watchIconNavbar = By.id("pt-watchlist-2");
 	By viewAndEditWatchListLink = By.id("ca-special-specialAssociatedNavigationLinks-link-1");
 	By clearWatchlistLink = By.id("ca-special-specialAssociatedNavigationLinks-link-3");
