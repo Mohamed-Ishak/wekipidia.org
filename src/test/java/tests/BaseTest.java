@@ -1,15 +1,14 @@
 package tests;
 
-import java.time.Duration;
 
-import org.openqa.selenium.By;
+
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterTest;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
-import org.testng.annotations.BeforeTest;
 
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
@@ -18,10 +17,10 @@ public class BaseTest extends AbstractTestNGCucumberTests{
 
         public static  WebDriver driver ;
 	
-
-	@BeforeTest
+	@BeforeMethod
 	public void setupDriver() {
-	     
+//	     ChromeOptions options = new ChromeOptions();
+//	     options.addArguments("--headless");
 	     driver = new ChromeDriver();
 	     driver.manage().window().maximize();
 	     driver.navigate().to("https://en.wikipedia.org/wiki/Main_Page");
@@ -30,13 +29,13 @@ public class BaseTest extends AbstractTestNGCucumberTests{
 	
 
 	
-//	@AfterTest
-//	public void teardownDriver() {
-//		if(driver != null) {
-//			driver.quit();
-//		}
-//	}
-	
+	@AfterMethod
+	public void teardownDriver() {
+		if(driver != null) {
+			driver.quit();
+		}
+	}
+//	
 	
 
 }

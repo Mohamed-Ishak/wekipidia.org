@@ -1,6 +1,9 @@
 package stepDefinitions;
 
 
+import org.testng.Assert;
+
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.AccountLandingPage;
 import tests.BaseTest;
@@ -19,16 +22,18 @@ public class ChangeLanguageSteps extends BaseTest{
 	@When("User Enter a langauge name in the dropdown searchbar")
 	public void user_enter_a_langauge_name_in_the_dropdown_searchbar() throws InterruptedException {
 		landingPage.waitForSearchbar();
-      //   landingPage.EnterLanguageName();
 	}
 
-//	@When("User selected from suggestion dropdown")
-//	public void user_selected_from_suggestion_dropdown() {
-//          landingPage.SelectedTheSuggestedOption();
-//	}
+	@When("User selected from suggestion dropdown")
+	public void user_selected_from_suggestion_dropdown() {
+		landingPage.enterYourLanguage();
+		landingPage.clickONTurkishOption();
+	}
 
-//	@Then("The Lanuguage is changed successfully")
-//	public void the_lanuguage_is_changed_successfully() {
-//	
-//	}
+	@Then("The Lanuguage is changed successfully")
+	public void the_lanuguage_is_changed_successfully() {
+	  Assert.assertEquals(landingPage.getLanguageHeader(), "Yapay zekâ");
+	  
+
+	}
 }

@@ -21,7 +21,7 @@ public class WatchlistSteps extends BaseTest{
 		landingPage = new AccountLandingPage(driver);
 		landingPage.enterArticleTitleInSearchbar();
 	}
-
+	
 	@When("User click on search button")
 	public void user_click_on_search_button() {
 		landingPage.waitForSearchBTN();
@@ -42,8 +42,9 @@ public class WatchlistSteps extends BaseTest{
 
 	@When("User view the watchlist")
 	public void user_view_the_watchlist() {
+	 watchlistPage.waitForWatchlistToBeVisible();
      watchlistPage.viewWatchlist();
-     watchlistPage.waitForWatchlistToBeVisible();	
+     	
 	}
 
 	@Then("User can clear the watchlist")

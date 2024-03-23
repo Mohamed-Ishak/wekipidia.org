@@ -24,14 +24,15 @@ public class AccountLandingPage extends BasePage {
 	By searchBar = By.id("searchInput");
 	By searchBTN = By.cssSelector("form[id='searchform'] button");
 	By articleTitle = By.cssSelector("#firstHeading span");
-	By watchIcon = By.id("ca-watch");
+	By watchIcon = By.cssSelector("li[class='mw-watchlink mw-list-item']");
     
     By languagesDropdown = By.cssSelector("div[class='vector-dropdown mw-portlet mw-portlet-lang']");
-    By LanguageSearchbar = By.cssSelector("input[class='uls-filterinput uls-filtersuggestion']");
-    //By suggestedLang = By.cssSelector("div[class*='uls-language-list']");
+    By LanguageSearchbar = By.xpath("//div[@class='uls-search-wrapper']/div/input[2]");
+    By suggestedLang = By.cssSelector("li[title='Türkçe']");
     By languages =  By.cssSelector("div[class*='uls-language-list']");
     By turkLang = By.cssSelector("div[data-region='EU'] li[title='Türkçe']");
-    //WebElement turkishLanguage = driver.findElement(By.cssSelector("div[data-region='EU'] li[title='Türkçe']"));
+    By langHeader = By.cssSelector("#firstHeading span");
+   
    
     
     By profileDropdow = By.cssSelector("div[id='vector-user-links-dropdown']");
@@ -62,7 +63,6 @@ public class AccountLandingPage extends BasePage {
 
 	public void enterArticleTitleInSearchbar() {
 		driver.findElement(searchBar).sendKeys("Artificial intelligence");
-
 	}
 
 	public void clickOnSearch() {
@@ -93,6 +93,22 @@ public class AccountLandingPage extends BasePage {
 	
 	public void waitForSearchbar() {
 		waitForElementToBeVisible(LanguageSearchbar);
+		
+	}
+	
+	public void enterYourLanguage() {
+		driver.findElement(LanguageSearchbar).sendKeys("Türkçe");
+	}
+	
+	
+	public void clickONTurkishOption() {
+		driver.findElement(suggestedLang).click();
+	}
+	
+	public String getLanguageHeader() {
+	 	String langTxt = driver.findElement(langHeader).getText();
+	 	
+	 	return langTxt;
 	}
 	
 	
@@ -107,27 +123,6 @@ public class AccountLandingPage extends BasePage {
 	}
 	
 	
-	// javaScript Executer
-
-	
-//	public void EnterLanguageName(){
-//		Actions actions = new Actions(driver);
-//		actions.scrollToElement(turkishLanguage).perform();
-//		
-	
-
-//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5000));
-//		wait.until(ExpectedConditions.elementToBeClickable(LanguageSearchbar));
-		//driver.findElement(LanguageSearchbar).sendKeys("Türkçe");
-		
-		
-		//sendKeys("Türkçe")
-//	}
-	
-//	public void SelectedTheSuggestedOption() {
-//		
-//		driver.findElement(turkishLanguage).click();
-//	}
 	
 
 }

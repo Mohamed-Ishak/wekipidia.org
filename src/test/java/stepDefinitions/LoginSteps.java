@@ -14,7 +14,6 @@ import tests.BaseTest;
 public class LoginSteps extends BaseTest{
 
 
-
 	MainPage mainPage ;
 	LoginPage loginPage ;
 	AccountLandingPage landingPage ;

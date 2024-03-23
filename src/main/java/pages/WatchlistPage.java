@@ -41,7 +41,7 @@ public class WatchlistPage extends BasePage{
 	
 	public void waitForWatchlistToBeVisible() {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(watchlistArticle));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(viewAndEditWatchListLink));
 	}
 	
 

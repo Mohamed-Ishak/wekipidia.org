@@ -14,13 +14,14 @@ public class AddTopicSteps extends BaseTest{
 	}
 
 	@When("user click on Add topic link")
-	public void userClickAddTopicLink() {		
+	public void userClickAddTopicLink() throws InterruptedException {
+     Thread.sleep(3000);		
      landingPage.clickOnAddTopicLink();
 	}
 
 	@Then("user can add new Topic")
 	public void userCanAddNewtopic() {
-    
+     
 	}
 
 
