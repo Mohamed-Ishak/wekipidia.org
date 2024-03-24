@@ -1,27 +1,27 @@
 package pages;
 
-import java.awt.Desktop.Action;
+
 import java.time.Duration;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+
 
 public class AccountLandingPage extends BasePage {
 
 	public AccountLandingPage(WebDriver driver) {
 		super(driver);
-		// TODO Auto-generated constructor stub
+
 	}
     
 	
 	By accountUserNameLink = By.cssSelector("#pt-userpage-2");
-	By searchBar = By.id("searchInput");
+	By searchBar = By.cssSelector("#simpleSearch input[id='searchInput']");
 	By searchBTN = By.cssSelector("form[id='searchform'] button");
 	By articleTitle = By.cssSelector("#firstHeading span");
 	By watchIcon = By.cssSelector("li[class='mw-watchlink mw-list-item']");
@@ -61,11 +61,16 @@ public class AccountLandingPage extends BasePage {
 		driver.findElement(addTopic).click();
 	}
 
-	public void enterArticleTitleInSearchbar() {
+	public void enterArticleTitleInSearchbar(){
 		driver.findElement(searchBar).sendKeys("Artificial intelligence");
 	}
+	
+	public void waitForSearchbarToBeVisible() {
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+	wait.until(ExpectedConditions.visibilityOfElementLocated(searchBar));
+	}
 
-	public void clickOnSearch() {
+	public void clickOnSearch(){
 		driver.findElement(searchBTN).click();
 	}
 
@@ -74,7 +79,8 @@ public class AccountLandingPage extends BasePage {
 	}
 	
 	public void waitForSearchBTN() {
-         waitForElementToBeVisible(searchBTN);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+		wait.until(ExpectedConditions.elementToBeClickable(searchBTN));
 	}
 	
 	

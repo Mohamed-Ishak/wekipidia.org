@@ -14,7 +14,7 @@ Scenario: Validate that user can search for  article and add it to watchlist
           When User naviage to watchlist page
           When User view the watchlist
           Then User can clear the watchlist
-
+#@headless
  Scenario: Validate that user can add External URLs to his profile
           Given User Open profile dorpdown
           When  User select Preferences option
@@ -23,7 +23,7 @@ Scenario: Validate that user can search for  article and add it to watchlist
           And   User click Save button
           Then  Links are saved successfully
   
-                
+             
 Scenario: Validate that user can change language from english to turkie
           Given User Enter a title in the search bar
           When User click on search button 

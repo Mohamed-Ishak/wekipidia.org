@@ -14,12 +14,12 @@ public class WatchlistPage extends BasePage{
 		// TODO Auto-generated constructor stub
 	}
 
-	By watchIconNavbar = By.id("pt-watchlist-2");
-	By viewAndEditWatchListLink = By.id("ca-special-specialAssociatedNavigationLinks-link-1");
-	By clearWatchlistLink = By.id("ca-special-specialAssociatedNavigationLinks-link-3");
-	By clearWatchlistBTN = By.id("ooui-php-2");
+private	By watchIconNavbar = By.id("pt-watchlist-2");
+private	By viewAndEditWatchListLink = By.id("ca-special-specialAssociatedNavigationLinks-link-1");
+private	By clearWatchlistLink = By.id("ca-special-specialAssociatedNavigationLinks-link-3");
+private	By clearWatchlistBTN = By.id("ooui-php-2");
 	By watchlistArticle = By.id("editwatchlist-ns0");
-	By clearedSuccessTxt = By.xpath("//div[@id='mw-content-text']");
+private	By clearedSuccessTxt = By.xpath("//div[@id='mw-content-text']");
 	public void userNavigateToWatchlistPage() {
 		driver.findElement(watchIconNavbar).click();
 	}

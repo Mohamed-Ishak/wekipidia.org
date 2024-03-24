@@ -19,11 +19,12 @@ public class WatchlistSteps extends BaseTest{
 	@Given("User Enter a title in the search bar")
 	public void userEnterAtitleInTheSearchbar() {
 		landingPage = new AccountLandingPage(driver);
+		landingPage.waitForSearchbarToBeVisible();
 		landingPage.enterArticleTitleInSearchbar();
 	}
 	
 	@When("User click on search button")
-	public void user_click_on_search_button() {
+	public void user_click_on_search_button() throws InterruptedException {
 		landingPage.waitForSearchBTN();
         landingPage.clickOnSearch();
 	}
