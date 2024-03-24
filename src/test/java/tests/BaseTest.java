@@ -3,8 +3,13 @@ package tests;
 
 
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -37,7 +42,12 @@ public class BaseTest extends AbstractTestNGCucumberTests{
 			driver.quit();
 		}
 	}
-//	
+    // Take a screen shot
+	public void takeScreenShot() throws IOException {
+		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(src, new File(System.getProperty("user.dir")+"\\src\\screenshot.png"));
+	}
+
 	
 
 }
